@@ -13,6 +13,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
   solutionName: 'src/Web/Web.csproj'
+  azureSubscription: 'AzureResourceGroup1'
+  appServiceName: 'eShopOnWebLocalDemo'
 
 steps:
 - task: DotNetCoreCLI@2
@@ -45,8 +47,8 @@ steps:
 - task: AzureWebApp@1
   inputs:
     appType: webAppLinux
-    azureSubscription: 'Visual Studio Professional Subscription'
-    appName: 'eShopOnWebLocalDemo'
+    azureSubscription: $(azureSubscription)
+    appName: $(appServiceName)
     package: $(Build.ArtifactStagingDirectory)/Release/Web.zip    
 
 # - script: dotnet build $(solutionName) --configuration $(buildConfiguration)
