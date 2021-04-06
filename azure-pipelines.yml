@@ -42,6 +42,12 @@ steps:
   displayName: 'Publish artifact'
   condition: succeeded()
 
+- task: AzureWebApp@1
+  inputs:
+    appType: webAppLinux
+    azureSubscription: 'Visual Studio Professional Subscription'
+    appName: 'eShopOnWebLocalDemo'
+    package: $(Build.ArtifactStagingDirectory)/Release/Web.zip    
 
 # - script: dotnet build $(solutionName) --configuration $(buildConfiguration)
 #   displayName: 'dotnet build $(buildConfiguration)'
