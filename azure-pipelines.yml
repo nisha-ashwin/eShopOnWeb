@@ -45,6 +45,7 @@ steps:
   condition: succeeded()
 
 - task: AzureWebApp@1
+  displayName: 'Deploy Web App to portal'
   inputs:
     appType: webAppLinux
     azureSubscription: $(azureSubscription)
