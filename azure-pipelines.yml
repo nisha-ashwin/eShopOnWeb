@@ -13,7 +13,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   solutionName: 'src/Web/Web.csproj'
-  azureSubscription: 'AzureResourceGroup1'
+  azureSubscription: 'AzureResourceGroup01'
   appServiceName: 'eShopOnWebLocalDemo'
 
 steps:
