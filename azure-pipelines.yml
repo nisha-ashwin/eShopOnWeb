@@ -36,7 +36,7 @@ steps:
   inputs:
    command: 'publish'
    arguments:  '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
-   projects: 'src/Web/Web.csproj'
+   projects: '**/*.csproj'
    publishWebProjects: false
    zipAfterPublish: true
 
@@ -50,7 +50,7 @@ steps:
     appType: webAppLinux
     azureSubscription: $(azureSubscription)
     appName: $(appServiceName)
-    package: $(Build.ArtifactStagingDirectory)/Release/Web.zip    
+    package: $(Build.ArtifactStagingDirectory)/**/*.zip    
 
 # - script: dotnet build $(solutionName) --configuration $(buildConfiguration)
 #   displayName: 'dotnet build $(buildConfiguration)'
